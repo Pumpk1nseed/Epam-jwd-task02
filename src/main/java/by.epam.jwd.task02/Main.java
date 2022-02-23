@@ -10,13 +10,14 @@ package by.epam.jwd.task02;
 
 public class Main {
     public static void main(String[] args) {
-        String str = "2/2";
-        boolean flag = Validator.validateStringForCalculator(str);
-        System.out.println(flag);
-        //if (flag){
-            //System.out.println(Calculator.ExpressionToRPN(str));
-            //System.out.println(Calculator.RPNToAnswer(Calculator.ExpressionToRPN(str)));
-        //}
-    }
+        String str = "5/0";
+        boolean isCorrect = Validator.validateStringForCalculator(str);
 
+        if (isCorrect) {
+            System.out.println(Calculator.calculateExpression(str));
+        }
+
+    }
 }
+
+

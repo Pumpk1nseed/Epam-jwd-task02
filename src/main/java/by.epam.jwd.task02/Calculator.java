@@ -6,19 +6,26 @@ import java.util.Stack;
 
 public class Calculator {
 
-    public static String ExpressionToRPN(String expression) {
+    //проверить infinity
+    public static double calculateExpression(String expression){
+        String rpn = expressionToRPN(expression);
+        double result  = rpnToAnswer(rpn);
+        return result;
+    }
+
+    public static String expressionToRPN(String str) {
         String current = "";
         Stack<Character> stack = new Stack<>();
 
         int priority; //текущий приоритет нашего символа
-        for (int i = 0; i < expression.length(); i++) {
-            priority = getPriority(expression.charAt(i));
+        for (int i = 0; i < str.length(); i++) {
+            priority = getPriority(str.charAt(i));
 
             if (priority == 0) {
-                current += expression.charAt(i);
+                current += str.charAt(i);
             }
             if (priority == 1) {
-                stack.push(expression.charAt(i));
+                stack.push(str.charAt(i));
             }
             if (priority > 1) {
                 current += ' '; // если пробела не будет, то наш RPN будет передавать слитную строку, чтобы отделять 22 от 222
@@ -31,7 +38,7 @@ public class Calculator {
                         break;
                     }
                 }
-                stack.push(expression.charAt(i));
+                stack.push(str.charAt(i));
             }
 
             if(priority == -1){
@@ -51,7 +58,7 @@ public class Calculator {
     }
 
     //предусмотреть деление на нуль
-    public static Double RPNToAnswer(String rpn) {
+    public static Double rpnToAnswer(String rpn) {
         String operand = new String();//если будем использовать большие числа, нам нужно будет проходиться по строке в поисках пробела (и пока не найдет пробле, это будет число)
         Stack<Double> stack = new Stack<>();
 
@@ -92,7 +99,7 @@ public class Calculator {
         return stack.pop();
     }
 
-    //определяет приоритет символа арифе=метического выражения
+    //определяет приоритет символа арифметического выражения
     private static int getPriority(char token) {
         if (token == '*' || token == '/') {
             return 3;
