@@ -8,15 +8,15 @@ package by.epam.jwd.task02;
  *Вычислите значение выражения.
  */
 
-public class Main {
-    public static void main(String[] args) {
-        String str = "5/0";
-        boolean isCorrect = Validator.validateStringForCalculator(str);
+public class MathCalculator {
+    public double calculate(String str) {
+        MathCalcValidator validator = new MathCalcValidator();
+        MathCalcLogic logic = new MathCalcLogic();
 
-        if (isCorrect) {
-            System.out.println(Calculator.calculateExpression(str));
-        }
+        validator.validateStringForCalculator(str);
+        double result = logic.calculateExpression(str);
 
+        return result;
     }
 }
 
