@@ -113,7 +113,7 @@ public class MathCalcValidator {
         }
     }
 
-    //проверет логику выражения (подряд идущие знаки, начало/конец строки)
+    //проверет логику выражения (подряд идущие знаки, корректность знаков в начале/конце строки)
     public void checkLogicOfExpression(String str) {
         boolean twoSignInRow = findTwoSignInRow(str);
         boolean incorrectStart = findIncorrectStart(str);

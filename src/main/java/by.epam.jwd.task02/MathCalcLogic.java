@@ -14,7 +14,6 @@ public class MathCalcLogic {
                 continue;
             }
             if (ExpressionToReversePolishNotation.getPriority(rpn.charAt(i)) == 0) {
-                //записывает числа в операнд
                 while (rpn.charAt(i) != ' ' && ExpressionToReversePolishNotation.getPriority(rpn.charAt(i)) == 0) {
                     operand += rpn.charAt(i++);
                     if (i == rpn.length()) {
