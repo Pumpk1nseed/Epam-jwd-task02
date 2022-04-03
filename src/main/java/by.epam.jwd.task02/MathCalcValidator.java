@@ -3,6 +3,10 @@ package by.epam.jwd.task02;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/*
+ *Проверяет входное выражение на соответствие требованиям приложения: строка, которая содержит натуральные числа,
+ *знаки четырех арифметических действий (сложение, вычитание, умножение, деление) и скобки.
+ */
 public class MathCalcValidator {
 
     public void validateStringForCalculator(String str) {
